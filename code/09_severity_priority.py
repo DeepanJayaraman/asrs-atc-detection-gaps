@@ -15,14 +15,7 @@ import pandas as pd
 import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-# Repository root. Override with the ASRS_BASE environment variable, e.g.
-#   set ASRS_BASE=D:\my\data\dir      (Windows)
-#   export ASRS_BASE=/home/me/data     (Linux/macOS)
-# Default: the parent of this code/ directory, i.e. the repository root.
-BASE = os.environ.get(
-    "ASRS_BASE",
-    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-)
+BASE = r"D:\Documents\Research\Hazard Scenario Generation Aviation safety"
 LAB  = os.path.join(BASE, "results", "rq1_validation", "doc_topics_labeled.csv")
 TRND = os.path.join(BASE, "results", "rq3_trends", "trend_table.csv")
 GAP  = os.path.join(BASE, "results", "rq4_detection", "detection_gap_indicators.csv")
@@ -79,10 +72,7 @@ print(tbl[["n", "mean_share_pct", "slope_pp_per_decade", "trend",
 # ------------------------------------------------------------------ figure --
 # scatter: prevalence vs trend, sized by evasive share, coloured by auto-detect.
 #
-# Labelling policy: every theme named in the paper's prose or in the trends
-# table is labelled, in addition to the top-ranked themes by priority signal.
-# Without this the reader cannot locate themes the text argues about (e.g.
-# TCAS RA conflicts, sector workload), which rank outside the top ten.
+# Label all themes named in text + top 10 by priority signal
 KEY_THEMES = [
     # named in the RQ3 trends table
     "Sector/airspace management workload",
@@ -103,9 +93,7 @@ KEY_THEMES = [
     "Helicopter operations",
 ]
 
-# Era-artefact themes are style artefacts, not hazards: their slopes reflect a
-# change in reporting orthography. They are shown for completeness (as the
-# Methods section states) but drawn in grey and excluded from interpretation.
+# Era-artefacts shown but not interpreted (reporting style, not hazard)
 is_art = tbl["trend"].astype(str).str.contains("rtifact|rtefact", case=False,
                                                na=False)
 main_t, art_t = tbl[~is_art], tbl[is_art]
@@ -124,13 +112,9 @@ ax.scatter(art_t["mean_share_pct"], art_t["slope_pp_per_decade"],
            linestyle="--", alpha=0.9, zorder=2)
 
 ax.axhline(0, color="gray", lw=0.6, zorder=1)
-# Widen the data limits before placing labels so long theme names have room
-# inside the axes instead of running under the colourbar.
-ax.margins(x=0.16, y=0.10)
+ax.margins(x=0.16, y=0.10)  # room for labels
 
-# ---- label placement with greedy collision avoidance ------------------------
-# Candidates are tried in order; a label is accepted only if it neither
-# overlaps an already-placed label nor spills outside the axes.
+# ---- label placement (no overlap, stay in bounds) ----
 CANDS = [(7, 5), (-7, 5), (7, -11), (-7, -11), (12, 13), (-12, 13),
          (12, -19), (-12, -19), (0, 16), (0, -21), (20, 0), (-20, 0),
          (26, 20), (-26, 20), (26, -26), (-26, -26)]
@@ -138,8 +122,7 @@ CANDS = [(7, 5), (-7, 5), (7, -11), (-7, -11), (12, 13), (-12, 13),
 _labels, _markers = [], []      # obstacle sets, shared across placement passes
 
 def _seed_marker_obstacles():
-    """Treat every plotted marker as a soft obstacle. Marker area is in
-    points^2; convert to a display-space box around the point."""
+    # Convert marker circles to display-space bboxes for collision checks
     from matplotlib.transforms import Bbox
     fig.canvas.draw()
     scale = fig.dpi / 72.0
@@ -150,15 +133,13 @@ def _seed_marker_obstacles():
                                          row["slope_pp_per_decade"]))
         _markers.append(Bbox.from_extents(px - r, py - r, px + r, py + r))
 
-def _overlap_area(a, b):
+def _overlap_area(a, b):  # intersection area of two bboxes
     w = min(a.x1, b.x1) - max(a.x0, b.x0)
     h = min(a.y1, b.y1) - max(a.y0, b.y0)
     return w * h if (w > 0 and h > 0) else 0.0
 
 def place(items, fontsize=7.5):
-    """items: (x, y, text, colour). Score every candidate offset and keep the
-    best. Label-on-label overlap is weighted far above label-on-marker, since
-    text over text is unreadable while text over a circle is merely untidy."""
+    # Score offsets: penalize text-text overlap 200x, keep best
     fig.canvas.draw()
     rend = fig.canvas.get_renderer()
     axbb = ax.get_window_extent(renderer=rend)
@@ -175,20 +156,20 @@ def place(items, fontsize=7.5):
                        + 1.0 * sum(_overlap_area(bb, o) for o in _markers))
             if not (bb.x0 >= axbb.x0 and bb.x1 <= axbb.x1
                     and bb.y0 >= axbb.y0 and bb.y1 <= axbb.y1):
-                penalty += 1e9                  # never spill outside the axes
-            penalty += 0.02 * (dx * dx + dy * dy)   # prefer nearby placement
+                penalty += 1e9
+            penalty += 0.02 * (dx * dx + dy * dy)
             if best is None or penalty < best[0]:
                 best = (penalty, bb, dx, dy)
             ann.remove()
             if penalty == 0.02 * (dx * dx + dy * dy):
-                break                           # perfectly clear: stop early
+                break  # no obstacles, stop
         _, bb, dx, dy = best
         ax.annotate(txt, (x, y), xytext=(dx, dy), textcoords="offset points",
                     fontsize=fontsize, color=col, zorder=5,
                     ha="left" if dx >= 0 else "right",
                     va="bottom" if dy >= 0 else "top")
         _labels.append(bb)
-        if abs(dx) > 12 or abs(dy) > 16:        # leader line for distant labels
+        if abs(dx) > 12 or abs(dy) > 16:  # add leader line if far
             ax.annotate("", (x, y), xytext=(dx, dy),
                         textcoords="offset points", zorder=1,
                         arrowprops=dict(arrowstyle="-", lw=0.4, color="0.55"))
