@@ -1,5 +1,8 @@
 # Detection gaps in the pilot–controller system
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21709021.svg)](https://doi.org/10.5281/zenodo.21709021)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 Reproduction code for:
 
 > Jayaraman, D. *Detection gaps in the pilot–controller system: a four-decade
@@ -131,7 +134,21 @@ under a minute.
 
 ## Citation
 
+This release is archived on Zenodo. Version 1.0.0, which produced the results
+in the paper, is [10.5281/zenodo.21709021](https://doi.org/10.5281/zenodo.21709021);
+[10.5281/zenodo.21709020](https://doi.org/10.5281/zenodo.21709020) always
+resolves to the latest version.
+
 ```bibtex
+@software{jayaraman2026code,
+  author  = {Jayaraman, Deepan},
+  title   = {Detection gaps in the pilot--controller system: analysis code},
+  version = {v1.0.0},
+  year    = {2026},
+  doi     = {10.5281/zenodo.21709021},
+  url     = {https://doi.org/10.5281/zenodo.21709021}
+}
+
 @article{jayaraman2026detection,
   author  = {Jayaraman, Deepan},
   title   = {Detection gaps in the pilot--controller system: a four-decade
