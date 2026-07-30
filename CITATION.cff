@@ -13,7 +13,7 @@ authors:
     given-names: Deepan
     affiliation: "Independent Researcher, India"
     email: jayaramandeepan08@gmail.com
-# TODO: add `orcid: "https://orcid.org/0000-0000-0000-0000"` above once available.
+    orcid: "https://orcid.org/0000-0002-4991-4001"
 license: MIT
 repository-code: "https://github.com/DeepanJayaraman/asrs-atc-detection-gaps"
 keywords:
@@ -33,6 +33,7 @@ preferred-citation:
     - family-names: Jayaraman
       given-names: Deepan
       affiliation: "Independent Researcher, India"
+      orcid: "https://orcid.org/0000-0002-4991-4001"
   journal: "Safety Science"
   year: 2026
   notes: "Under review."
