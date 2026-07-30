@@ -11,7 +11,7 @@ type: software
 authors:
   - family-names: Jayaraman
     given-names: Deepan
-    affiliation: "Independent Researcher, India"
+    affiliation: "Caterpillar India"
     email: jayaramandeepan08@gmail.com
     orcid: "https://orcid.org/0000-0002-4991-4001"
 license: MIT
@@ -32,7 +32,7 @@ preferred-citation:
   authors:
     - family-names: Jayaraman
       given-names: Deepan
-      affiliation: "Independent Researcher, India"
+      affiliation: "Caterpillar India"
       orcid: "https://orcid.org/0000-0002-4991-4001"
   journal: "Safety Science"
   year: 2026
