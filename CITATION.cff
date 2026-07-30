@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite both the software and the paper it accompanies."
+title: "Detection gaps in the pilot-controller system: analysis code"
+abstract: >-
+  Reproduction code for a four-decade analysis of 30,410 ATC-related NASA ASRS
+  incident reports (1988-2026). Recovers hazard themes from reporter narratives
+  with BERTopic, validates them against NASA-analyst labels, and links them to
+  operational conditions, proportional trends, and the detection pathways
+  recorded in the Detector, When Detected, and Result fields.
+type: software
+authors:
+  - family-names: Jayaraman
+    given-names: Deepan
+    affiliation: "Independent Researcher, India"
+    email: jayaramandeepan08@gmail.com
+# TODO: add `orcid: "https://orcid.org/0000-0000-0000-0000"` above once available.
+license: MIT
+repository-code: "https://github.com/DeepanJayaraman/asrs-atc-detection-gaps"
+keywords:
+  - aviation safety
+  - air traffic control
+  - ASRS
+  - topic modelling
+  - BERTopic
+  - hazard detection
+  - safety management systems
+preferred-citation:
+  type: article
+  title: >-
+    Detection gaps in the pilot-controller system: a four-decade analysis of
+    air-traffic-control-related incident reports from NASA ASRS (1988-2026)
+  authors:
+    - family-names: Jayaraman
+      given-names: Deepan
+      affiliation: "Independent Researcher, India"
+  journal: "Safety Science"
+  year: 2026
+  notes: "Under review."
