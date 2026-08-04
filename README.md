@@ -154,7 +154,7 @@ resolves to the latest version.
   title   = {Detection gaps in the pilot--controller system: a four-decade
              analysis of air-traffic-control-related incident reports from
              {NASA} {ASRS} (1988--2026)},
-  journal = {Safety Science},
+  journal = {Accident Analysis & Prevention},
   year    = {2026},
   note    = {Under review}
 }
