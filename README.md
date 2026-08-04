@@ -7,7 +7,7 @@ Reproduction code for:
 
 > Jayaraman, D. *Detection gaps in the pilot–controller system: a four-decade
 > analysis of air-traffic-control-related incident reports from NASA ASRS
-> (1988–2026).* Submitted to *Safety Science*.
+> (1988–2026).* Submitted to *Accident Analysis & Prevention*.
 
 The study analyses **30,410 unique ATC-related NASA ASRS reports** (January
 1988 – January 2026). Hazard themes are recovered from the reporter-written

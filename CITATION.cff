@@ -12,7 +12,7 @@ authors:
   - family-names: Jayaraman
     given-names: Deepan
     affiliation: "Caterpillar India, Chennai, India"
-    email: jayaramandeepan08@gmail.com
+    email: deepanjayram@gmail.com
     orcid: "https://orcid.org/0000-0002-4991-4001"
 license: MIT
 repository-code: "https://github.com/DeepanJayaraman/asrs-atc-detection-gaps"
@@ -34,6 +34,6 @@ preferred-citation:
       given-names: Deepan
       affiliation: "Caterpillar India, Chennai, India"
       orcid: "https://orcid.org/0000-0002-4991-4001"
-  journal: "Safety Science"
+  journal: "Accident Analysis & Prevention"
   year: 2026
   notes: "Under review."
