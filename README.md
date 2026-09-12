@@ -1,13 +1,13 @@
-# Detection gaps in the pilot–controller system
+# Detection pathways for aviation hazards
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21709021.svg)](https://doi.org/10.5281/zenodo.21709021)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 Reproduction code for:
 
-> Jayaraman, D. *Detection gaps in the pilot–controller system: a four-decade
-> analysis of air-traffic-control-related incident reports from NASA ASRS
-> (1988–2026).* Submitted to *Accident Analysis & Prevention*.
+> Jayaraman, D. *Detection pathways for aviation hazards: Evidence from four
+> decades of air traffic control incident reports.* Manuscript in preparation,
+> 2026.
 
 The study analyses **30,410 unique ATC-related NASA ASRS reports** (January
 1988 – January 2026). Hazard themes are recovered from the reporter-written
@@ -22,7 +22,7 @@ share of reports (TCAS resolution advisories: −4.4 percentage points per
 decade) and is caught by automation in 48.7% of cases. Surface and tower
 hazards are rising, are caught by automation in only 2–10% of cases, and carry
 the smallest reported miss distances (median 150 ft for taxi conflicts). The
-detection gap has moved to the airport surface.
+detection gap is increasingly concentrated in airport-surface hazards.
 
 ## Getting the data
 
@@ -142,7 +142,7 @@ resolves to the latest version.
 ```bibtex
 @software{jayaraman2026code,
   author  = {Jayaraman, Deepan},
-  title   = {Detection gaps in the pilot--controller system: analysis code},
+  title   = {Detection pathways for aviation hazards: analysis code},
   version = {v1.0.0},
   year    = {2026},
   doi     = {10.5281/zenodo.21709021},
@@ -151,12 +151,10 @@ resolves to the latest version.
 
 @article{jayaraman2026detection,
   author  = {Jayaraman, Deepan},
-  title   = {Detection gaps in the pilot--controller system: a four-decade
-             analysis of air-traffic-control-related incident reports from
-             {NASA} {ASRS} (1988--2026)},
-  journal = {Accident Analysis & Prevention},
+  title   = {Detection pathways for aviation hazards: Evidence from four
+             decades of air traffic control incident reports},
   year    = {2026},
-  note    = {Under review}
+  note    = {Manuscript in preparation}
 }
 ```
 

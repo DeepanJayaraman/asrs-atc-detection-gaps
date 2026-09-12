@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite both the software and the paper it accompanies."
-title: "Detection gaps in the pilot-controller system: analysis code"
+title: "Detection pathways for aviation hazards: analysis code"
 abstract: >-
   Reproduction code for a four-decade analysis of 30,410 ATC-related NASA ASRS
   incident reports (1988-2026). Recovers hazard themes from reporter narratives
@@ -27,13 +27,12 @@ keywords:
 preferred-citation:
   type: article
   title: >-
-    Detection gaps in the pilot-controller system: a four-decade analysis of
-    air-traffic-control-related incident reports from NASA ASRS (1988-2026)
+    Detection pathways for aviation hazards: Evidence from four decades of
+    air traffic control incident reports
   authors:
     - family-names: Jayaraman
       given-names: Deepan
       affiliation: "Caterpillar India, Chennai, India"
       orcid: "https://orcid.org/0000-0002-4991-4001"
-  journal: "Accident Analysis & Prevention"
   year: 2026
-  notes: "Under review."
+  notes: "Manuscript in preparation."
